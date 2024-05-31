@@ -29,3 +29,5 @@ connectDB()
 
 app.use(productsRoutes);
 app.use(orderRoutes);
+
+module.exports = app;
