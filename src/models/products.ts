@@ -1,5 +1,16 @@
 import { Schema, model } from "mongoose";
 
+export type Product = {
+  _id: string;
+  name: string;
+  description: string;
+  price: number;
+  imageUrl: string;
+  stock: number;
+  category: string;
+  images: Array<string>;
+};
+
 const ProductsSchema = new Schema(
   {
     name: {
@@ -15,7 +26,6 @@ const ProductsSchema = new Schema(
     },
     imageUrl: {
       type: String,
-      required: [true, "Image is required"],
     },
     stock: {
       type: Number,
@@ -23,6 +33,10 @@ const ProductsSchema = new Schema(
     },
     category: {
       type: String,
+      required: true,
+    },
+    images: {
+      type: Array<String>,
       required: true,
     },
   },

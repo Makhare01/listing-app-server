@@ -1,1 +1,1 @@
-export { ErrorCodes } from './error-codes'
+export { StatusCodes } from "./error-codes";

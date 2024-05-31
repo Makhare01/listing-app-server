@@ -1,8 +1,13 @@
 import { Router } from "express";
-import { createProductController, productsController } from "../controller";
+import {
+  createProductController,
+  getProductDetailsController,
+  getProductsController,
+} from "../controller";
 
 export const productsRoutes = Router();
 
-productsRoutes.get("/products", productsController);
+productsRoutes.get("/products", getProductsController);
+productsRoutes.get("/products/:productId", getProductDetailsController);
 
 productsRoutes.post("/products", createProductController);

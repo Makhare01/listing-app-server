@@ -1,8 +1,10 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 
 import { productsRoutes } from "./routes";
 import { connectDB } from "./db";
+import { orderRoutes } from "./routes/order-routes";
 
 dotenv.config();
 
@@ -12,6 +14,7 @@ const port = process.env.PORT;
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded());
+app.use(cors());
 
 connectDB()
   .then(() => {
@@ -25,3 +28,4 @@ connectDB()
   });
 
 app.use(productsRoutes);
+app.use(orderRoutes);
